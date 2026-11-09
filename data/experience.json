@@ -1,0 +1,16 @@
+[
+    {
+        "company": "Xentronic Inovasi Indonesia",
+		"logo":"images/Logo Xentronic.jpg",
+        "position": "Electromedical Engineering Assistant",
+        "year": "September - December 2025",
+        "description": "During my internship at PT Xentronic Inovasi Indonesia, I gained hands-on experience in the medical electronics (electromedical) field by assisting in the design and assembly of batteries for medical devices, as well as performing maintenance and repair of damaged medical equipment. This experience strengthened my technical skills in electronics, equipment troubleshooting, and maintenance while deepening my understanding of medical device systems and safety standards."
+    },
+	{
+        "company": "Telkom Akses Indonesia",
+		"logo":"images/Logo Telkom Akses.png",
+        "position": "Telecommunication Engineering Intern",
+        "year": "July - December 2022",
+        "description": "During my internship at PT Telkom Akses Indonesia, I was involved in telecommunication network installation and maintenance activities, including supporting fiber optic network deployment, troubleshooting connectivity issues, and assisting field operations. This experience enhanced my understanding of network infrastructure, telecommunication systems, and the importance of teamwork and problem-solving in ensuring reliable network performance."
+    }
+]

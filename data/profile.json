@@ -1,0 +1,37 @@
+{
+    "name": "Carroline Aulya Saputri- Electrical Engineer",
+    "description": "A graduate of Politeknik Negeri Semarang majoring in Electronics Engineering with a strong interest in embedded systems, control systems, and industrial technology. Experienced in networking, electronics maintenance, and automation projects. Able to work independently and collaboratively in a team, with good communication, analytical, and problem-solving skills.",
+    "profileImage": "images/foto olin.png",
+    "email": "carrolineputri31@gmail.com",
+    "phone": "+62 (895) 310-88045",
+    "socialMedia": [
+        {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/carroline-putri-16a93b27a"
+        },
+        {
+            "platform": "GitHub",
+            "url": "https://github.com/carrolineputrii"
+        },
+        {
+            "platform": "Instagram",
+            "url": "https://instagram.com/carrolineputrii"
+        }
+    ],
+    "cv": {
+			"text": "Download CV",
+			"file": "docs/CURRICULUM VITAE.pdf",
+			"icon": "fas fa-file-pdf"
+	},
+    "skills": [
+        {"name": "Embedded Systems", "icon": "fas fa-microchip", "level": 85},
+        {"name": "Arduino Programming", "icon": "fas fa-code", "level": 85},
+        {"name": "Internet of Things", "icon": "fas fa-wifi", "level": 80},
+        {"name": "Hardware & PCB Design", "icon": "fas fa-desktop", "level": 70},
+	    {"name": "Sensor Integration", "icon": "fas fa-satellite-dish", "level": 75},
+        {"name": "Web Programming", "icon": "fab fa-js", "level": 75},
+	    {"name": "Project Management", "icon": "fas fa-tasks", "level": 85},
+	    {"name": "Problem Solving", "icon": "fas fa-lightbulb", "level": 80},
+	    {"name": "English Communication", "icon": "fas fa-comments", "level": 70}
+    ]
+}

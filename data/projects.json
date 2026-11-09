@@ -1,0 +1,74 @@
+[
+    {
+        "title": "PID Control System on Linear Actuator using IoT Web Platform for Remote Monitoring",
+        "year": "2026",
+        "role": "IoT & Embedded Systems Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Designed and developed a PID control system for a linear actuator using an ESP32 integrated with a web-based IoT platform and Firebase. The system allows users to adjust setpoints, monitor actuator positions in real time, and visualize system responses through a web dashboard.",
+        "image": "images/Projek TA.png"
+    },
+    {
+        "title": "Baby Incubator Temperature Control System Using PID with Web-Based Real-Time HMI Monitoring",
+        "year": "2026",
+        "role": "Control System Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "A web-based closed-loop PID control simulator built with JavaScript and Chart.js to monitor baby incubator temperature dynamics, PID parameters, and disturbance recovery in real time.",
+        "image": "images/Projek KBK2.png"
+    },
+    {
+        "title": "IoT-Based Parking Lot Monitoring System Using Ultrasonic Sensors and Website in Real-Time",
+        "year": "2026",
+        "role": "IoT Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "An IoT smart parking system using ESP32, ultrasonic sensors, and MQTT to monitor 5 parking slots in real time through an interactive HTML/JS web dashboard.",
+        "image": "images/Projek IoT.png"
+    },
+    {
+        "title": "Arduino-Based Quail Egg Incubator",
+        "year": "2025",
+        "role": "Embedded System Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Developed a smart touchless water dispenser system utilizing Arduino Uno, HC-SR04 ultrasonic sensor, infrared sensor, relay module, and DC water pump. Implemented automatic cup detection and water level monitoring to ensure hygienic, efficient, and controlled dispensing. Conducted system design, circuit integration, software development, prototype fabrication, and performance evaluation.",
+        "image": "images/Projek Instrument.png"
+    },
+    {
+        "title": "Smart Automatic Water Dispenser System",
+        "year": "2025",
+        "role": "Embedded System Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Designed and developed an Arduino Uno-based quail egg incubator equipped with a temperature sensor, heating system, and LCD display. The system monitors and controls incubation temperature automatically to maintain suitable conditions for egg hatching.",
+        "image": "images/Project PE.png"
+    },
+    {
+        "title": "Croissant Baking Temperature and Timer Control System",
+        "year": "2025",
+        "role": "Control System Designer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Developed an automated croissant baking system with temperature regulation and timer control. Utilized LM35 temperature sensing, LM741 comparator circuits, NE555 timer modules, relay switching, and seven-segment displays to ensure consistent baking performance and reduce manual intervention.",
+        "image": "images/Project SKK.png"
+    },
+	{
+        "title": "Automatic Ginger Dryer Temperature Control System",
+        "year": "2025",
+        "role": "Control System Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Developed an automatic temperature control system for ginger drying using Arduino Uno, LM35 temperature sensor, relay, and heater. Implemented an ON/OFF control method to regulate temperature and maintain stable drying conditions. Conducted system design, hardware integration, simulation, monitoring, and performance evaluation to improve process efficiency and reliability.",
+        "image": "images/Project KBK.png"
+    },
+    {
+        "title": "Quail Egg Incubator Temperature Control System",
+        "year": "2025",
+        "role": "Control System Developer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Developed a temperature-controlled quail egg incubator simulation using Arduino Uno, DS18B20 temperature sensor, relay, heater, and LCD display. Implemented automatic ON/OFF control to maintain optimal incubation temperatures, improving system stability and operational efficiency. Responsible for system design, simulation, wiring, and embedded programming.",
+        "image": "images/Project Instrumen.png"
+    },
+	{
+        "title": "Automatic Smart Trash Bin Using Arduino Uno and Ultrasonic Sensor",
+        "year": "2024",
+        "role": "Electronics Engineer & Programmer",
+        "institution": "Politeknik Negeri Semarang",
+        "description": "Designed and developed an automatic smart trash bin using Arduino Uno, HC-SR04 ultrasonic sensor, and SG90 servo motor. The system automatically detects nearby objects and opens the lid without physical contact, improving hygiene and user convenience. Responsible for hardware integration, circuit assembly, sensor calibration, and Arduino programming.",
+        "image": "images/Project Sensor.png"
+    }
+]

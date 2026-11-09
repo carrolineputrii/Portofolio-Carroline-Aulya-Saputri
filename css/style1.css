@@ -1,0 +1,613 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --spacing: 1.5rem;
+    --border-radius: 12px; /* Diubah menjadi lebih membulat untuk kesan modern */
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    color: #2c3e50;
+    background-color: #f4f7f6; /* Warna latar belakang yang lebih bersih & premium */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Sidebar Navigation - Diubah menjadi Floating Dock Glassmorphism */
+.sidebar-nav {
+    position: fixed;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(44, 62, 80, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.2rem 0.8rem;
+    border-radius: 30px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.sidebar-nav:hover {
+    background: rgba(44, 62, 80, 0.95);
+    padding-right: 1.5rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.sidebar-nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.6rem;
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.sidebar-nav a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+}
+
+.sidebar-nav i {
+    font-size: 1.3rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.nav-text {
+    display: none;
+    opacity: 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-nav:hover .nav-text {
+    display: inline;
+    opacity: 1;
+}
+
+.sidebar-nav:hover a {
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+}
+
+/* Tooltip Kustom */
+.sidebar-nav a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 110%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav a:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    left: 120%;
+}
+
+/* Bagian Aktif */
+.sidebar-nav a.active {
+    color: white;
+    background: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.sidebar-nav a.active i {
+    transform: scale(1);
+}
+
+/* Section Styles */
+.section {
+    padding: 6rem 0; /* Memberikan ruang napas antar konten lebih lega */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.section h2 {
+    text-align: left; /* Teks judul kiri memberikan kesan editorial modern */
+    margin-bottom: 3.5rem;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Profile Section - Tata Letak Split Grid Modern */
+.profile-content {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: sticky;
+    top: 6rem;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border: 4px solid white;
+    transition: var(--transition-smooth);
+}
+
+.profile-image:hover {
+    transform: translateY(-8px) rotate(2deg);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.18);
+}
+
+.profile-contact {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.profile-contact p {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.profile-contact p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.profile-description {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    transition: var(--transition-smooth);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(52, 152, 219, 0.08);
+}
+
+.social-links a:hover {
+    color: white;
+    background: var(--primary-color);
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* CV Download Button */
+.cv-download-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(231, 76, 60, 0.08);
+    color: var(--accent-color);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 1.1rem;
+    border: 1px solid rgba(231, 76, 60, 0.15);
+    position: relative;
+}
+
+.cv-download-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+}
+
+/* Skills Section */
+.skills-container {
+    margin-top: 3rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.skills-container h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-item {
+    background: #f0f4f8;
+    color: var(--secondary-color);
+    padding: 0.7rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+}
+
+.skill-item:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.25);
+}
+
+/* Education & Experience Sections - Diubah menjadi Tata Letak Dual-Column/Timeline */
+.education-list, .experience-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.education-item, .experience-item {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.education-item::before, .experience-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.education-item:hover, .experience-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.education-item h3, .experience-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.education-item .degree, .experience-item .position {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.education-item .year, .experience-item .duration {
+    display: inline-block;
+    color: #7f8c8d;
+    background: #f0f4f8;
+    padding: 0.2rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Header dalam Item Edu/Exp */
+.edu-header, .exp-header {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.edu-logo, .exp-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f8fafc;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Projects Section - Tata Letak Premium Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+.project-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project-info {
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #f8fafc;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    padding: 0.5rem 0;
+    width: fit-content;
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Media Queries & Responsiveness */
+@media (max-width: 1024px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .profile-image-container {
+        position: static;
+        align-items: center;
+    }
+    
+    .profile-image {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 0; /* Memberi ruang untuk navigasi mobile jika diperlukan */
+    }
+    
+    .sidebar-nav {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 450px;
+        height: auto;
+        padding: 0.8rem 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .sidebar-nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0;
+    }
+    
+    .sidebar-nav:hover {
+        padding-right: 1.5rem;
+    }
+    
+    .sidebar-nav .nav-text {
+        display: none !important;
+    }
+    
+    .sidebar-nav a::after {
+        display: none;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-description {
+        padding: 1.8rem;
+    }
+    
+    .education-list, .experience-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animasi Cascade Terbuka */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#profile.animate { transition-delay: 0.1s; }
+#education.animate { transition-delay: 0.15s; }
+#experience.animate { transition-delay: 0.2s; }
+#projects.animate { transition-delay: 0.25s; }
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="none" stroke="%233498db" stroke-width="0.3" d="M0,0 L100,100" /></svg>');
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.section.animate::before {
+    opacity: 0.02;
+}

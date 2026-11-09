@@ -1,0 +1,714 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --spacing: 1.5rem;
+    --border-radius: 24px; /* Sudut membulat organik yang sangat trendi */
+    --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Transisi kinetik super halus */
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.8;
+    color: #2c3e50;
+    background-color: #f8fafc;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Sidebar Navigation - Diubah menjadi Right-Side Kinetic Dock */
+.sidebar-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(44, 62, 80, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.5rem 0.8rem;
+    border-radius: 100px;
+    z-index: 1000;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.sidebar-nav:hover {
+    background: rgba(44, 62, 80, 0.95);
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.sidebar-nav a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 100px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.sidebar-nav a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.sidebar-nav i {
+    font-size: 1.2rem;
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+.nav-text {
+    display: none;
+    opacity: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar-nav:hover .nav-text {
+    display: inline;
+    opacity: 1;
+}
+
+.sidebar-nav:hover a {
+    padding: 0.8rem 1.5rem;
+    border-radius: 100px;
+}
+
+/* Tooltip Dinamis */
+.sidebar-nav a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 120%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.9);
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav a:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    right: 135%;
+}
+
+.sidebar-nav:hover a::after {
+    display: none !important; /* Tooltip disembunyikan jika teks menu sudah melebar */
+}
+
+/* Bagian Aktif Navigation */
+.sidebar-nav a.active {
+    color: white;
+    background: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+}
+
+/* Section Styles */
+.section {
+    padding: 10rem 0 5rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+}
+
+.section h2 {
+    text-align: left;
+    margin-bottom: 5rem;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.section h2::before {
+    content: '//';
+    color: var(--primary-color);
+    margin-right: 0.8rem;
+    font-family: monospace;
+    font-size: 2.2rem;
+}
+
+/* Profile Section - Overlapping Creative Bento Layout */
+.profile-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Foto Profil dengan Efek Bingkai Melayang Bertumpuk */
+.profile-image-container {
+    grid-column: span 5;
+    position: relative;
+    padding: 2rem;
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 85%;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--primary-color);
+    z-index: 1;
+    transform: rotate(-6deg);
+    transition: var(--transition-smooth);
+}
+
+.profile-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    height: 80%;
+    background: rgba(52, 152, 219, 0.05);
+    border-radius: var(--border-radius);
+    z-index: 1;
+    transform: rotate(4deg);
+    transition: var(--transition-smooth);
+}
+
+.profile-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+    background: white;
+    transition: var(--transition-smooth);
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.profile-image-container:hover::before {
+    transform: rotate(-3deg) scale(1.05);
+    border-color: var(--accent-color);
+}
+
+/* Bagian Kontak */
+.profile-contact {
+    margin-top: 2rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.01);
+    z-index: 2;
+    position: relative;
+}
+
+.profile-contact p {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1rem;
+    color: #4a5568;
+    transition: var(--transition-smooth);
+}
+
+.profile-contact p:hover {
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+.profile-contact p:last-child {
+    margin-bottom: 0;
+}
+
+/* Deskripsi Diri */
+.profile-info {
+    grid-column: span 7;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.profile-description {
+    background: white;
+    padding: 3.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+    border-left: 8px solid var(--primary-color);
+    position: relative;
+}
+
+.profile-description::after {
+    content: '"';
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    font-size: 8rem;
+    color: rgba(52, 152, 219, 0.05);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: var(--transition-smooth);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+
+.social-links a:hover {
+    color: white;
+    background: var(--primary-color);
+    transform: translateY(-8px) rotate(8deg);
+    box-shadow: 0 20px 35px rgba(52, 152, 219, 0.3);
+}
+
+/* CV Download Button */
+.cv-download-btn {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: var(--accent-color);
+    border-radius: 18px;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 1.2rem;
+    border: 1px solid rgba(231, 76, 60, 0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+}
+
+.cv-download-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-8px) rotate(-8deg);
+    box-shadow: 0 20px 35px rgba(231, 76, 60, 0.3);
+}
+
+/* Skills Bento Box */
+.skills-container {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.01);
+}
+
+.skills-container h3 {
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-item {
+    background: #f1f5f9;
+    color: var(--secondary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+}
+
+.skill-item:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(52, 152, 219, 0.25);
+}
+
+/* Education & Experience Sections - Staggered Card Deck */
+.education-list, .experience-list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.5rem;
+}
+
+.education-item, .experience-item {
+    background-color: white;
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.01);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Menyusun selang-seling staggered (Bento staggered style) */
+.education-item:nth-child(odd), .experience-item:nth-child(odd) {
+    grid-column: span 7;
+}
+
+.education-item:nth-child(even), .experience-item:nth-child(even) {
+    grid-column: span 5;
+    transform: translateY(2rem); /* Menggeser posisi vertikal agar estetik */
+}
+
+.education-item:hover, .experience-item:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    border-color: rgba(52, 152, 219, 0.2);
+}
+
+.edu-header, .exp-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.edu-logo, .exp-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: #f8fafc;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.education-item h3, .experience-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.education-item .degree, .experience-item .position {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.education-item .year, .experience-item .duration {
+    display: inline-block;
+    color: white;
+    background: var(--secondary-color);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Projects Section - Magazine-Style Kinetic Mosaic Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3rem;
+}
+
+/* Modifikasi asimetris ukuran kartu proyek */
+.project-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0,0,0,0.01);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kartu pertama melebar secara horizontal penuh */
+.project-card:nth-child(3n+1) {
+    grid-column: span 8;
+}
+
+/* Kartu kedua dan ketiga lebih tinggi ramping */
+.project-card:nth-child(3n+2) {
+    grid-column: span 4;
+}
+
+.project-card:nth-child(3n) {
+    grid-column: span 6;
+}
+
+.project-card:nth-child(3n+4) {
+    grid-column: span 6;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.1);
+}
+
+.project-image {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.06);
+}
+
+.project-info {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.project-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-weight: 600;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    width: fit-content;
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+    transform: translateX(8px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 5rem 2rem 10rem 2rem; /* Margin bawah besar agar tidak tertutup bar navigasi mobile */
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem;
+}
+
+/* Responsive Design & Tata Letak Mobile */
+@media (max-width: 1200px) {
+    .education-item:nth-child(odd), .education-item:nth-child(even),
+    .experience-item:nth-child(odd), .experience-item:nth-child(even) {
+        grid-column: span 6;
+        transform: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-image-container {
+        grid-column: span 12;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .profile-info {
+        grid-column: span 12;
+    }
+    
+    .project-card, .project-card:nth-child(3n+1), .project-card:nth-child(3n+2), .project-card:nth-child(3n) {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Merubah navigasi vertikal kanan menjadi Bottom Kinetic Dock */
+    .sidebar-nav {
+        right: auto;
+        left: 50%;
+        bottom: 2rem;
+        top: auto;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 480px;
+        padding: 0.6rem 1.5rem;
+        border-radius: 100px;
+    }
+    
+    .sidebar-nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0;
+    }
+    
+    .sidebar-nav a {
+        padding: 0.6rem;
+    }
+    
+    .sidebar-nav .nav-text {
+        display: none !important; /* Menyembunyikan teks di mobile agar muat */
+    }
+    
+    .sidebar-nav a::after {
+        display: none !important;
+    }
+    
+    .section {
+        padding: 6rem 0 3rem 0;
+    }
+    
+    .section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .education-item:nth-child(odd), .education-item:nth-child(even),
+    .experience-item:nth-child(odd), .experience-item:nth-child(even) {
+        grid-column: span 12;
+    }
+    
+    .education-item, .experience-item {
+        padding: 2rem;
+    }
+    
+    .project-card, .project-card:nth-child(3n+1), .project-card:nth-child(3n+2), .project-card:nth-child(3n) {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-description {
+        padding: 2rem;
+    }
+    
+    .edu-header, .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* Animations Trigger */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.section.animate {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#profile.animate { transition-delay: 0.1s; }
+#education.animate { transition-delay: 0.2s; }
+#experience.animate { transition-delay: 0.3s; }
+#projects.animate { transition-delay: 0.4s; }
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="none" stroke="%233498db" stroke-width="0.3" d="M0,0 L100,100" /></svg>');
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.section.animate::before {
+    opacity: 0.02;
+}

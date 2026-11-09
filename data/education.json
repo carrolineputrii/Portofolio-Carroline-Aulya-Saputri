@@ -1,0 +1,16 @@
+[
+    {
+        "university": "Politeknik Negeri Semarang",
+		"logo": "images/polines-logo.png",
+        "major": "Diploma (D3) in Electronics Engineering",
+        "year": "2023 - 2026",
+        "description": "Related Coursework: Microcontroller & Embedded Systems, PLC & Industrial Automation, Sensor and Actuator Systems, Basic Electronics"
+    },
+    {
+        "university": "SMK Negeri 4 Semarang",
+		"logo": "images/LOGO SMKN 4 SMG.jpeg",
+        "major": "Audio Video Engineering",
+        "year": "2020 - 2023",
+        "description": "Related Coursework: Basic Electronics, Electrical Circuits, Audio Video Systems, Digital Systems"
+    }
+]
